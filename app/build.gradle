@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "hu.bme.aut.lab.gibfood"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation kotlinDependencies.stdlib
+
+    implementation supportDependencies.appcompat
+    implementation supportDependencies.cardview
+    implementation supportDependencies.design
+
+
+    implementation toolkitDependencies.okhttp
+    implementation toolkitDependencies.logging
+    implementation toolkitDependencies.retrofit
+    implementation toolkitDependencies.retrofitGsonConverter
+    implementation toolkitDependencies.gson
+    implementation toolkitDependencies.glide
+    implementation toolkitDependencies.eventbus
+
+    implementation daggerDependencies.dagger
+    kapt daggerDependencies.compiler
+    api daggerDependencies.annotation
+
+    testImplementation unitTestDependencies.junit
+    testImplementation unitTestDependencies.robolectric
+    testImplementation unitTestDependencies.mockito
+
+    testImplementation daggerDependencies.dagger
+    testImplementation daggerDependencies.annotation
+    kaptTest daggerDependencies.compiler
+
+    androidTestImplementation instrumentationTestDependencies.espresso
+    androidTestImplementation instrumentationTestDependencies.espressoIdlingResource
+    androidTestImplementation instrumentationTestDependencies.espressoIntents
+    androidTestImplementation instrumentationTestDependencies.mockito
+    androidTestImplementation instrumentationTestDependencies.supportRunner
+    androidTestImplementation instrumentationTestDependencies.supportRules
+    androidTestImplementation instrumentationTestDependencies.supportAnnotations
+
+    androidTestImplementation daggerDependencies.dagger
+    androidTestImplementation daggerDependencies.annotation
+    kaptAndroidTest daggerDependencies.compiler
+}
