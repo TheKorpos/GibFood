@@ -1,3 +1,3 @@
-# Mobile Sofware Laboratory
+# Mobile Software Laboratory
 
 # GibFood
