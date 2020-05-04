@@ -1,7 +1,9 @@
 package hu.bme.aut.lab.gibfood
 
+
+import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
-import androidx.test.platform.app.InstrumentationRegistry
+
 
 
 import org.junit.Test
