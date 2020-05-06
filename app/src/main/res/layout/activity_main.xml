@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ui.main.MainActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/fieldUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -17,11 +17,18 @@
         android:text="Name" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/fieldPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name" />
+
+    <Button
+        android:text="@string/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLogin" />
+
 </LinearLayout>
