@@ -1,15 +1,17 @@
 package hu.bme.aut.lab.gibfood
 
 import dagger.Component
+import hu.bme.aut.lab.gibfood.interactor.InteractorModule
 import hu.bme.aut.lab.gibfood.ui.UIModule
+import hu.bme.aut.lab.gibfood.ui.list.RecipeList
 import hu.bme.aut.lab.gibfood.ui.main.MainActivity
 import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = [UIModule::class])
+@Component(modules = [UIModule::class, InteractorModule::class])
 interface GibFoodApplicationComponent {
 
     fun inject(mainActivity: MainActivity)
-
+    fun inject(recipeList: RecipeList)
 }
