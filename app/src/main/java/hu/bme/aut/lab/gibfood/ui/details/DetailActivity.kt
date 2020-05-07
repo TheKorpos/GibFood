@@ -11,6 +11,7 @@ import android.widget.ListView
 import android.widget.TextView
 import hu.bme.aut.lab.gibfood.R
 import hu.bme.aut.lab.gibfood.injector
+import hu.bme.aut.lab.gibfood.interactor.RecipeInteractor
 import hu.bme.aut.lab.gibfood.ui.list.RecipeList
 import kotlinx.android.synthetic.main.activity_detail.*
 import javax.inject.Inject

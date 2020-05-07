@@ -24,4 +24,8 @@ class RecipeInteractor {
     fun getRecipes(query: String): List<Recipe> {
       return mutableList.filter { it.name.contains(query) }
     }
+
+    fun getRecipes(recipeId: Int): Recipe{
+        return Recipe(1, "TestRecipe")
+    }
 }
