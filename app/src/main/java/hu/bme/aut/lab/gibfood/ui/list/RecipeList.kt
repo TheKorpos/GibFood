@@ -29,7 +29,7 @@ class RecipeList : AppCompatActivity() , SearchView.OnQueryTextListener, RecipeL
     private var recipeAdapter : RecipeAdapter? = null
     private  var visibleRecipes: MutableList<Recipe> = mutableListOf()
 
-    private val RECIPE_ID = "RECIPE_ID"
+    val RECIPE_ID : String = "RECIPE_ID"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

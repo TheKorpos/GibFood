@@ -15,17 +15,15 @@
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/cardRecipeImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
-
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        card_view:srcCompat="@android:drawable/ic_menu_report_image" />
 
          <TextView
              android:id="@+id/cardRecipeName"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:layout_gravity="center"
-             android:text="test" />
-
+             android:layout_gravity="center"/>
 
 </LinearLayout>
 
