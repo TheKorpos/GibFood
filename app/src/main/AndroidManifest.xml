@@ -3,16 +3,26 @@
     package="hu.bme.aut.lab.gibfood">
 
     <application
-        android:allowBackup="true"
+        android:name=".GibFoodApplication"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity
+            android:name=".ui.list.RecipeList"
+            android:label="@string/title_activity_recipe_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.details.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName=".ui.list.RecipeList"/>
+
+        <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
