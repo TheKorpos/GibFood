@@ -1,7 +1,6 @@
 package hu.bme.aut.lab.gibfood.ui.details
 
 import hu.bme.aut.lab.gibfood.interactor.RecipeInteractor
-import hu.bme.aut.lab.gibfood.model.Recipe
 import hu.bme.aut.lab.gibfood.ui.Presenter
 import javax.inject.Inject
 

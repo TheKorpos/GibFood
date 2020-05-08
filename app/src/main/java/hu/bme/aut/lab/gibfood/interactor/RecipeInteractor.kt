@@ -1,31 +1,35 @@
 package hu.bme.aut.lab.gibfood.interactor
 
-import hu.bme.aut.lab.gibfood.model.Recipe
+import hu.bme.aut.lab.gibfood.interactor.event.RecipeEvent
+import hu.bme.aut.lab.gibfood.network.RecipeApi
+import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
-class RecipeInteractor {
+class RecipeInteractor @Inject constructor(private val recipeApi: RecipeApi) {
 
-    private val mutableList = mutableListOf(
-        Recipe(0, "First"),
-        Recipe(1, "Second"),
-        Recipe(2, "Third"),
-        Recipe(3, "Another"),
-        Recipe(4, "First"),
-        Recipe(5, "First"),
-        Recipe(6, "First"),
-        Recipe(7, "First"),
-        Recipe(8,"First")
-    )
 
-    fun getRecipes() : List<Recipe> {
-        return mutableList
+    fun getRecipes() {
+        val call = recipeApi.recipeGet()
+        val event = RecipeEvent()
+
+        try {
+            val response = call.execute()
+            if (response.code() != 200){
+                throw Exception(response.errorBody()?.toString())
+            }
+            event.code = 200
+            response.body()?.let { event.recipes = it.data }
+            EventBus.getDefault().post(event)
+        } catch (e: Exception){
+            event.throwable = e
+            EventBus.getDefault().post(event)
+        }
     }
 
-    fun getRecipes(query: String): List<Recipe> {
-      return mutableList.filter { it.name.contains(query) }
+    fun getRecipes(query: String) {
     }
 
-    fun getRecipes(recipeId: Int): Recipe{
-        return Recipe(1, "TestRecipe")
+    fun getRecipes(recipeId: Int){
     }
+
 }
