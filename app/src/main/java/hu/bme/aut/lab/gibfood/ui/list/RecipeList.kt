@@ -14,8 +14,10 @@ import android.widget.SearchView
 import hu.bme.aut.lab.gibfood.R
 import hu.bme.aut.lab.gibfood.injector
 import hu.bme.aut.lab.gibfood.model.Recipe
+import hu.bme.aut.lab.gibfood.ui.add.AddActivity
 import hu.bme.aut.lab.gibfood.ui.details.DetailActivity
 import hu.bme.aut.lab.gibfood.ui.main.MainPresenter
+import kotlinx.android.synthetic.main.activity_add.*
 
 import kotlinx.android.synthetic.main.activity_recipe_list.*
 import kotlinx.android.synthetic.main.content_recipe_list.*
@@ -39,12 +41,14 @@ class RecipeList : AppCompatActivity() , SearchView.OnQueryTextListener, RecipeL
         setContentView(R.layout.activity_recipe_list)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Adding recipes is not yet possible", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+        fab.setOnClickListener { openAddScreen() }
 
         searchView.setOnQueryTextListener(this)
+    }
+
+    override fun openAddScreen(){
+        val intent = Intent(this, AddActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onStart() {
@@ -91,5 +95,9 @@ class RecipeList : AppCompatActivity() , SearchView.OnQueryTextListener, RecipeL
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(RECIPE_ID, recipe.id)
         startActivity(intent)
+    }
+
+    override fun showErrorNotif(notif: String) {
+        Snackbar.make(addRecipeMainView, notif, Snackbar.LENGTH_LONG).setAction("Action", null).show()
     }
 }
