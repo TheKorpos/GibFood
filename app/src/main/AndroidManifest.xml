@@ -21,6 +21,10 @@
             android:name=".ui.details.DetailActivity"
             android:label="@string/title_activity_detail"
             android:parentActivityName=".ui.list.RecipeList"/>
+        <activity
+            android:name=".ui.add.AddActivity"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName=".ui.list.RecipeList"/>
 
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>

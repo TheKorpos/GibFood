@@ -4,4 +4,6 @@ import hu.bme.aut.lab.gibfood.model.Recipe
 
 interface RecipeListScreen {
      fun showRecipes(recipes: List<Recipe>)
+     fun openAddScreen()
+     fun showErrorNotif(notif: String)
 }

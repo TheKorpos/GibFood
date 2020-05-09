@@ -4,6 +4,7 @@ import dagger.Component
 import hu.bme.aut.lab.gibfood.interactor.InteractorModule
 import hu.bme.aut.lab.gibfood.network.NetworkModule
 import hu.bme.aut.lab.gibfood.ui.UIModule
+import hu.bme.aut.lab.gibfood.ui.add.AddActivity
 import hu.bme.aut.lab.gibfood.ui.details.DetailActivity
 import hu.bme.aut.lab.gibfood.ui.list.RecipeList
 import hu.bme.aut.lab.gibfood.ui.main.MainActivity
@@ -16,4 +17,5 @@ interface GibFoodApplicationComponent {
     fun inject(mainActivity: MainActivity)
     fun inject(recipeList: RecipeList)
     fun inject(detailActivity: DetailActivity)
+    fun inject(addActivity: AddActivity)
 }
