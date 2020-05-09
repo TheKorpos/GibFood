@@ -4,6 +4,7 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import hu.bme.aut.lab.gibfood.interactor.RecipeInteractor
+import hu.bme.aut.lab.gibfood.ui.add.AddRecipePresenter
 import hu.bme.aut.lab.gibfood.ui.details.DetailPresenter
 import hu.bme.aut.lab.gibfood.ui.list.RecipeListPresenter
 import hu.bme.aut.lab.gibfood.ui.main.MainPresenter
@@ -26,5 +27,9 @@ class UIModule (private val context: Context){
     @Provides
     @Singleton
     fun detailPresenter(recipeInteractor: RecipeInteractor) = DetailPresenter(recipeInteractor)
+
+    @Provides
+    @Singleton
+    fun addRecipePresenter(recipeInteractor: RecipeInteractor) = AddRecipePresenter(recipeInteractor)
 
 }
