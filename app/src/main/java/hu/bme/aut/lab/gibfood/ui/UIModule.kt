@@ -28,11 +28,11 @@ class UIModule (private val context: Context){
 
     @Provides
     @Singleton
-    fun detailPresenter(recipeInteractor: RecipeInteractor) = DetailPresenter(recipeInteractor)
+    fun detailPresenter(executor: Executor, recipeInteractor: RecipeInteractor) = DetailPresenter(executor, recipeInteractor)
 
     @Provides
     @Singleton
-    fun addRecipePresenter(recipeInteractor: RecipeInteractor) = AddRecipePresenter(recipeInteractor)
+    fun addRecipePresenter(executor: Executor, recipeInteractor: RecipeInteractor) = AddRecipePresenter(executor, recipeInteractor)
 
     @Provides
     @Singleton

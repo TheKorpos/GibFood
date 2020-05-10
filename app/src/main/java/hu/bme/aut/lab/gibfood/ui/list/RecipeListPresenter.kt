@@ -1,7 +1,7 @@
 package hu.bme.aut.lab.gibfood.ui.list
 
 import hu.bme.aut.lab.gibfood.interactor.RecipeInteractor
-import hu.bme.aut.lab.gibfood.interactor.event.RecipeEvent
+import hu.bme.aut.lab.gibfood.interactor.event.RecipeListEvent
 import hu.bme.aut.lab.gibfood.ui.Presenter
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -38,16 +38,16 @@ class RecipeListPresenter @Inject constructor(private val executor: Executor, pr
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEventMainThread(event: RecipeEvent) {
-        if (event.throwable != null) {
-            event.throwable?.printStackTrace()
-//            if (screen != null) {
-//                screen?.showNetworkError(event.throwable?.message.orEmpty())
-//            }
+    fun onEventMainThread(listEvent: RecipeListEvent) {
+        if (listEvent.throwable != null) {
+            listEvent.throwable?.printStackTrace()
+            if (screen != null) {
+                screen?.showErrorNotif(listEvent.throwable?.message.orEmpty())
+            }
         } else {
             if (screen != null) {
-                if (event.recipes.isNotEmpty()) {
-                    screen!!.showRecipes(event.recipes)
+                if (listEvent.recipes.isNotEmpty()) {
+                    screen!!.showRecipes(listEvent.recipes)
                 }
 
             }

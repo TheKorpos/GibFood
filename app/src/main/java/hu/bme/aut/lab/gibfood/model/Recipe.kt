@@ -22,7 +22,7 @@ class Recipe {
     /**
      */
     @SerializedName("id")
-    var id: BigDecimal? = null
+    var id: Long? = null
 
     override fun equals(o: Any?): Boolean {
         if (this === o) {

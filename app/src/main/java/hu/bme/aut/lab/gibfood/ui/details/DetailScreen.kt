@@ -5,5 +5,6 @@ interface DetailScreen {
     fun showRecipeName(name: String)
     fun showIngredients(ingredients: List<String>)
     fun showDescription(description: String)
+    fun showErrorNotif(notif: String)
 
 }

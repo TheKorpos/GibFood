@@ -2,6 +2,7 @@ package hu.bme.aut.lab.gibfood.ui.details
 
 import android.content.Context
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import hu.bme.aut.lab.gibfood.R
 import hu.bme.aut.lab.gibfood.injector
 import hu.bme.aut.lab.gibfood.interactor.RecipeInteractor
 import hu.bme.aut.lab.gibfood.ui.list.RecipeList
+import kotlinx.android.synthetic.main.activity_add.*
 import kotlinx.android.synthetic.main.activity_detail.*
 import javax.inject.Inject
 import kotlin.coroutines.coroutineContext
@@ -25,7 +27,7 @@ class DetailActivity : AppCompatActivity(), DetailScreen {
 
     private val ingredientList: MutableList<String> = mutableListOf()
 
-    private var recipeId: Int? = null
+    private var recipeId: Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +38,7 @@ class DetailActivity : AppCompatActivity(), DetailScreen {
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredientList)
         detailsListView.adapter = adapter
 
-       recipeId = intent.getIntExtra(RecipeList::RECIPE_ID.toString(), -1)
+       recipeId = intent.getLongExtra(RecipeList::RECIPE_ID.toString(), -1)
     }
 
     override fun onStart() {
@@ -61,5 +63,9 @@ class DetailActivity : AppCompatActivity(), DetailScreen {
 
     override fun showDescription(description: String) {
        detailsDescription.text = description
+    }
+
+    override fun showErrorNotif(notif: String) {
+        Snackbar.make(addRecipeMainView, notif, Snackbar.LENGTH_LONG).setAction("Action", null).show()
     }
 }

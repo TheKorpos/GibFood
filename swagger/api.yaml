@@ -51,6 +51,26 @@ paths:
           schema:
             $ref: '#/definitions/RecipeList'
       deprecated: false
+  '/Recipes/filter/{query}':
+    get:
+      tags:
+        - Recipe
+      summary: Searches a recipes by substring
+      operationId: Recipe_filtered_get
+      parameters:
+        - name: query
+          in: path
+          description: Substring to search for
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/RecipeList'
+      deprecated: false
+
   '/Recipes/{id}':
     head:
       tags:
@@ -62,7 +82,7 @@ paths:
           in: path
           description: Model id
           required: true
-          type: number
+          type: integer
           format: JSON
       responses:
         '200':
@@ -80,7 +100,7 @@ paths:
           in: path
           description: Model id
           required: true
-          type: number
+          type: integer
           format: JSON
       responses:
         '200':
@@ -128,7 +148,7 @@ paths:
           in: path
           description: PersistedModel id
           required: true
-          type: number
+          type: integer
           format: JSON
         - name: data
           in: body
@@ -172,8 +192,8 @@ definitions:
       description:
         type: string
       id:
-        type: number
-        format: Int
+        type: integer
+        format: int64
     required:
       - name
       - id
