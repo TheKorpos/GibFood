@@ -16,7 +16,6 @@ import hu.bme.aut.lab.gibfood.injector
 import hu.bme.aut.lab.gibfood.model.Recipe
 import hu.bme.aut.lab.gibfood.ui.add.AddActivity
 import hu.bme.aut.lab.gibfood.ui.details.DetailActivity
-import hu.bme.aut.lab.gibfood.ui.main.MainPresenter
 import kotlinx.android.synthetic.main.activity_add.*
 
 import kotlinx.android.synthetic.main.activity_recipe_list.*

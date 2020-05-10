@@ -3,7 +3,10 @@ package hu.bme.aut.lab.gibfood
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
-
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import hu.bme.aut.lab.gibfood.room.Recipe
+import hu.bme.aut.lab.gibfood.room.RoomDB
 
 
 import org.junit.Test
@@ -23,5 +26,28 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("hu.bme.aut.lab.gibfood", appContext.packageName)
+    }
+
+    @Test
+    fun roomTest(){
+
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+
+        val db = Room.inMemoryDatabaseBuilder(
+            appContext,
+            RoomDB::class.java
+        ).build()
+
+
+       val recipe =  Recipe(1, "test", "anothertest")
+        db.recipeDao().insertAll(recipe)
+
+        val result = db.recipeDao().loadAllByIds(longArrayOf(1))
+
+        assertEquals(1, result?.size)
+        assertEquals("test", result?.get(0)?.name)
+
+        db.close()
+
     }
 }
