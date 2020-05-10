@@ -1,5 +1,7 @@
 package hu.bme.aut.lab.gibfood
 
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -14,4 +16,5 @@ class ExampleUnitTest {
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
     }
+
 }
