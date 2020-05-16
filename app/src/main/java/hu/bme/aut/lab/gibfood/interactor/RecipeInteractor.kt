@@ -9,7 +9,7 @@ import org.greenrobot.eventbus.EventBus
 import retrofit2.Call
 import javax.inject.Inject
 
-class RecipeInteractor @Inject constructor(private val recipeApi: RecipeApi) {
+class RecipeInteractor @Inject constructor(private val recipeApi: RecipeApi, private val eventBus: EventBus) {
 
 
     fun getRecipes() {
@@ -32,10 +32,10 @@ class RecipeInteractor @Inject constructor(private val recipeApi: RecipeApi) {
             }
             event.code = 200
             response.body()?.let { event.recipes = it.data }
-            EventBus.getDefault().post(event)
+            eventBus.post(event)
         } catch (e: Exception){
             event.throwable = e
-            EventBus.getDefault().post(event)
+            eventBus.post(event)
         }
     }
 
@@ -50,10 +50,10 @@ class RecipeInteractor @Inject constructor(private val recipeApi: RecipeApi) {
             }
             event.code = 200
             response.body()?.let { event.recipe = it }
-            EventBus.getDefault().post(event)
+            eventBus.post(event)
         } catch (e: Exception){
             event.throwable = e
-            EventBus.getDefault().post(event)
+            eventBus.post(event)
         }
     }
 
@@ -74,10 +74,10 @@ class RecipeInteractor @Inject constructor(private val recipeApi: RecipeApi) {
                 throw Exception(response.errorBody()?.toString())
             }
             event.code = 200
-            EventBus.getDefault().post(event)
+            eventBus.post(event)
         } catch (e: Exception){
             event.throwable = e
-            EventBus.getDefault().post(event)
+            eventBus.post(event)
         }
     }
 
