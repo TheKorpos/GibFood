@@ -11,6 +11,7 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:hint="Recipe Name"
             android:id="@+id/addRecipeName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -19,7 +20,6 @@
             android:layout_marginEnd="20dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,16 +32,18 @@
             android:layout_marginTop="40dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name"
+            android:hint="Ingredient name"
             app:layout_constraintStart_toStartOf="@+id/addRecipeName"
             app:layout_constraintTop_toBottomOf="@+id/addRecipeName" />
 
         <Button
+            android:background="@android:color/transparent"
+            android:paddingBottom="4dp"
             android:id="@+id/btnIngredientAdd"
             android:layout_width="147dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
-            android:text="Add"
+            android:drawableBottom="@android:drawable/ic_input_add"
             app:layout_constraintBottom_toBottomOf="@+id/newIngredient"
             app:layout_constraintEnd_toEndOf="@+id/addRecipeName"
             app:layout_constraintStart_toEndOf="@+id/newIngredient"

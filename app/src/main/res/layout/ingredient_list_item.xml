@@ -13,9 +13,11 @@
 
     <Button
         android:id="@+id/ingredient_list_remove"
-        android:text="Remove"
         android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="3"
-        android:layout_height="match_parent" />
+        android:padding="5dp"
+        android:background="@android:drawable/divider_horizontal_dark"
+        android:drawableBottom="@android:drawable/ic_delete" />
 
 </LinearLayout>
