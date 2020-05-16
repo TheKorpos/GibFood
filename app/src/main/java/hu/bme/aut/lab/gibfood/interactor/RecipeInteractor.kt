@@ -7,8 +7,6 @@ import hu.bme.aut.lab.gibfood.model.RecipeList
 import hu.bme.aut.lab.gibfood.network.RecipeApi
 import org.greenrobot.eventbus.EventBus
 import retrofit2.Call
-import java.io.FileDescriptor
-import java.math.BigDecimal
 import javax.inject.Inject
 
 class RecipeInteractor @Inject constructor(private val recipeApi: RecipeApi) {

@@ -4,7 +4,7 @@ import hu.bme.aut.lab.gibfood.model.Recipe
 
 data class RecipeListEvent (
     var code: Int = 0,
-    var recipes: List<Recipe> = listOf(),
+    var recipes: List<Recipe> = mutableListOf(),
     var throwable: Throwable? = null
 )
 

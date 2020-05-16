@@ -1,6 +1,7 @@
 package hu.bme.aut.lab.gibfood.ui.details
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -29,22 +30,27 @@ class DetailActivity : AppCompatActivity(), DetailScreen {
 
     private var recipeId: Long? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         actionBar?.setDisplayHomeAsUpEnabled(true)
         injector.inject(this)
 
+        recipeId = intent.getLongExtra("RECIPE_ID", -1)
+
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredientList)
         detailsListView.adapter = adapter
+    }
 
-       recipeId = intent.getLongExtra(RecipeList::RECIPE_ID.toString(), -1)
+    override fun onResume() {
+        super.onResume()
+        detailPresenter.getRecipe(recipeId!!)
     }
 
     override fun onStart() {
         super.onStart()
         detailPresenter.attachScreen(this)
-        detailPresenter.getRecipe(recipeId!!)
     }
 
     override fun onStop() {

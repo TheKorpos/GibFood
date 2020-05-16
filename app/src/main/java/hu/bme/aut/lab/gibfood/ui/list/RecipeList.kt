@@ -1,15 +1,11 @@
 package hu.bme.aut.lab.gibfood.ui.list
 
-import android.content.Context
 import android.content.Intent
-import android.media.Image
-import android.media.ImageReader
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.AttributeSet
-import android.view.View
+
 import android.widget.SearchView
 import hu.bme.aut.lab.gibfood.R
 import hu.bme.aut.lab.gibfood.injector
@@ -91,8 +87,11 @@ class RecipeList : AppCompatActivity() , SearchView.OnQueryTextListener, RecipeL
     }
 
     fun openItem(recipe: Recipe ){
-        val intent = Intent(this, DetailActivity::class.java)
-        intent.putExtra(RECIPE_ID, recipe.id)
+        val intent = Intent(this, DetailActivity::class.java).apply {
+            putExtra(RECIPE_ID, recipe.id)
+            putExtra("KEY", "hello")
+        }
+
         startActivity(intent)
     }
 

@@ -46,10 +46,7 @@ class RecipeListPresenter @Inject constructor(private val executor: Executor, pr
             }
         } else {
             if (screen != null) {
-                if (listEvent.recipes.isNotEmpty()) {
                     screen!!.showRecipes(listEvent.recipes)
-                }
-
             }
         }
     }
