@@ -29,7 +29,7 @@ class DetailActivity : AppCompatActivity(), DetailScreen {
     private val ingredientList: MutableList<String> = mutableListOf()
 
     private var recipeId: Long? = null
-
+    private var adapter: ArrayAdapter<String>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +39,7 @@ class DetailActivity : AppCompatActivity(), DetailScreen {
 
         recipeId = intent.getLongExtra("RECIPE_ID", -1)
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredientList)
+        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredientList)
         detailsListView.adapter = adapter
     }
 
@@ -64,7 +64,7 @@ class DetailActivity : AppCompatActivity(), DetailScreen {
 
     override fun showIngredients(ingredients: List<String>) {
        ingredientList.addAll(ingredients)
-        detailsListView.deferNotifyDataSetChanged()
+        adapter?.notifyDataSetChanged()
     }
 
     override fun showDescription(description: String) {
