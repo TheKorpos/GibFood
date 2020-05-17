@@ -1,7 +1,7 @@
 package hu.bme.aut.lab.gibfood
 
 import android.app.Activity
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 
 val Activity.injector: GibFoodApplicationComponent
     get() {
@@ -9,7 +9,7 @@ val Activity.injector: GibFoodApplicationComponent
     }
 
 
-val Fragment.injector: GibFoodApplicationComponent
+val androidx.fragment.app.Fragment.injector: GibFoodApplicationComponent
     get() {
         return (this.context!!.applicationContext as GibFoodApplication).injector
     }

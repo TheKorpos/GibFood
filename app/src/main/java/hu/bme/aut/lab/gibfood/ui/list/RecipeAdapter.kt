@@ -1,6 +1,6 @@
 package hu.bme.aut.lab.gibfood.ui.list
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import hu.bme.aut.lab.gibfood.R
 import hu.bme.aut.lab.gibfood.model.Recipe
 import kotlinx.android.synthetic.main.recipe_list_item.view.*
 
-class RecipeAdapter(private val context: RecipeList, private val items: List<Recipe>) : RecyclerView.Adapter<RecipeAdapter.ViewHolder>() {
+class RecipeAdapter(private val context: RecipeList, private val items: List<Recipe>) : androidx.recyclerview.widget.RecyclerView.Adapter<RecipeAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ViewHolder {
         val itemView = LayoutInflater.from(context).inflate(R.layout.recipe_list_item, viewGroup, false)
@@ -26,7 +26,7 @@ class RecipeAdapter(private val context: RecipeList, private val items: List<Rec
         viewHolder.itemView.setOnClickListener { view -> context.openItem(recipe)}
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view)  {
+    class ViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)  {
         val cardRecipeName = view.cardRecipeName
         val cardRecipeImage = view.cardRecipeImage
     }

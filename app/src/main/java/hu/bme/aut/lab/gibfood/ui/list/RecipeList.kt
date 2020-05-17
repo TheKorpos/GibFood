@@ -2,9 +2,9 @@ package hu.bme.aut.lab.gibfood.ui.list
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import android.widget.SearchView
 import hu.bme.aut.lab.gibfood.R
@@ -51,8 +51,8 @@ class RecipeList : AppCompatActivity() , SearchView.OnQueryTextListener, RecipeL
         recipeListPresenter.attachScreen(this)
 
 
-        val llm = LinearLayoutManager(this)
-        llm.orientation = LinearLayoutManager.VERTICAL
+        val llm = androidx.recyclerview.widget.LinearLayoutManager(this)
+        llm.orientation = androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
         recyclerViewRecipes.layoutManager = llm
 
         recipeAdapter = RecipeAdapter(this, visibleRecipes)
