@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import android.widget.SearchView
+import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.lab.gibfood.R
 import hu.bme.aut.lab.gibfood.injector
 import hu.bme.aut.lab.gibfood.model.Recipe
@@ -51,8 +52,8 @@ class RecipeList : AppCompatActivity() , SearchView.OnQueryTextListener, RecipeL
         recipeListPresenter.attachScreen(this)
 
 
-        val llm = androidx.recyclerview.widget.LinearLayoutManager(this)
-        llm.orientation = androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
+        val llm = LinearLayoutManager(this)
+        llm.orientation = RecyclerView.VERTICAL
         recyclerViewRecipes.layoutManager = llm
 
         recipeAdapter = RecipeAdapter(this, visibleRecipes)

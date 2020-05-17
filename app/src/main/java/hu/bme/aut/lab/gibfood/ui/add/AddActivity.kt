@@ -5,6 +5,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.widget.LinearLayout
+import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.lab.gibfood.R
 import hu.bme.aut.lab.gibfood.injector
 import kotlinx.android.synthetic.main.activity_add.*
@@ -25,8 +26,8 @@ class AddActivity : AppCompatActivity(), AddScreen {
 
         injector.inject(this)
 
-        val ll = androidx.recyclerview.widget.LinearLayoutManager(this)
-        ll.orientation = LinearLayout.VERTICAL
+        val ll = LinearLayoutManager(this)
+        ll.orientation = RecyclerView.VERTICAL
         ingredinet_list.layoutManager = ll
 
         adapter = IngredientAdapter(this, ingredients)
