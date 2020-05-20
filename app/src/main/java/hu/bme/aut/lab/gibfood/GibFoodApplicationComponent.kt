@@ -3,6 +3,7 @@ package hu.bme.aut.lab.gibfood
 import dagger.Component
 import hu.bme.aut.lab.gibfood.interactor.InteractorModule
 import hu.bme.aut.lab.gibfood.network.NetworkModule
+import hu.bme.aut.lab.gibfood.room.DatabaseModule
 import hu.bme.aut.lab.gibfood.ui.UIModule
 import hu.bme.aut.lab.gibfood.ui.add.AddActivity
 import hu.bme.aut.lab.gibfood.ui.details.DetailActivity
@@ -12,7 +13,7 @@ import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = [UIModule::class, InteractorModule::class, NetworkModule::class])
+@Component(modules = [UIModule::class, InteractorModule::class, NetworkModule::class, DatabaseModule::class])
 interface GibFoodApplicationComponent {
     fun inject(mainActivity: MainActivity)
     fun inject(recipeList: RecipeList)

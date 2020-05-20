@@ -35,10 +35,8 @@
                 android:id="@+id/detailImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#423232"
-                android:contentDescription="TODO"
-                android:minHeight="80dp"
-                app:srcCompat="@android:drawable/stat_notify_sync" />
+                android:minHeight="160dp"
+                app:srcCompat="@android:drawable/ic_menu_report_image" />
         </LinearLayout>
     </LinearLayout>
     <TextView

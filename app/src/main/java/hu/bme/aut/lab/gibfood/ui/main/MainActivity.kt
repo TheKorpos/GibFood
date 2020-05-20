@@ -3,7 +3,7 @@ package hu.bme.aut.lab.gibfood.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import hu.bme.aut.lab.gibfood.R
 import hu.bme.aut.lab.gibfood.injector
 import hu.bme.aut.lab.gibfood.ui.list.RecipeList

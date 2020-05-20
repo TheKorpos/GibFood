@@ -1,9 +1,10 @@
 package hu.bme.aut.lab.gibfood.ui.details
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
@@ -28,6 +29,7 @@ class DetailActivity : AppCompatActivity(), DetailScreen {
     private val ingredientList: MutableList<String> = mutableListOf()
 
     private var recipeId: Long? = null
+    private var adapter: ArrayAdapter<String>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,16 +37,20 @@ class DetailActivity : AppCompatActivity(), DetailScreen {
         actionBar?.setDisplayHomeAsUpEnabled(true)
         injector.inject(this)
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredientList)
-        detailsListView.adapter = adapter
+        recipeId = intent.getLongExtra("RECIPE_ID", -1)
 
-       recipeId = intent.getLongExtra(RecipeList::RECIPE_ID.toString(), -1)
+        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredientList)
+        detailsListView.adapter = adapter
+    }
+
+    override fun onResume() {
+        super.onResume()
+        detailPresenter.getRecipe(recipeId!!)
     }
 
     override fun onStart() {
         super.onStart()
         detailPresenter.attachScreen(this)
-        detailPresenter.getRecipe(recipeId!!)
     }
 
     override fun onStop() {
@@ -58,7 +64,7 @@ class DetailActivity : AppCompatActivity(), DetailScreen {
 
     override fun showIngredients(ingredients: List<String>) {
        ingredientList.addAll(ingredients)
-        detailsListView.deferNotifyDataSetChanged()
+        adapter?.notifyDataSetChanged()
     }
 
     override fun showDescription(description: String) {
