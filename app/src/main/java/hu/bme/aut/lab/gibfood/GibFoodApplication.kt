@@ -2,13 +2,17 @@ package hu.bme.aut.lab.gibfood
 
 import android.app.Application
 import androidx.room.Room
-import hu.bme.aut.lab.gibfood.interactor.InteractorModule
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import hu.bme.aut.lab.gibfood.room.DatabaseModule
 import hu.bme.aut.lab.gibfood.room.RoomDB
 import hu.bme.aut.lab.gibfood.ui.UIModule
 
+
 class GibFoodApplication : Application() {
     lateinit var injector: GibFoodApplicationComponent
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onCreate() {
         super.onCreate()
@@ -22,5 +26,10 @@ class GibFoodApplication : Application() {
         injector = DaggerGibFoodApplicationComponent.builder().uIModule(UIModule(this)).databaseModule(
             DatabaseModule(db)
         ).build()
+
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this)
     }
+
+
+    fun getAnalytics() = firebaseAnalytics
 }

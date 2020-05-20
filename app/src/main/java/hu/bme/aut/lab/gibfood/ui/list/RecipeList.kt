@@ -8,6 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import android.widget.SearchView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
+import hu.bme.aut.lab.gibfood.GibFoodApplication
 import hu.bme.aut.lab.gibfood.R
 import hu.bme.aut.lab.gibfood.injector
 import hu.bme.aut.lab.gibfood.model.Recipe
@@ -60,6 +65,7 @@ class RecipeList : AppCompatActivity() , SearchView.OnQueryTextListener, RecipeL
         recyclerViewRecipes.adapter = recipeAdapter
 
         recipeListPresenter.refreshList()
+
     }
 
     override fun onStop() {

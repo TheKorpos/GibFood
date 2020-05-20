@@ -11,6 +11,8 @@ buildscript {
         classpath pluginDependencies.android
         classpath pluginDependencies.kotlin
         classpath pluginDependencies.kotlin_android_extensions
+        classpath 'com.google.gms:google-services:4.3.3'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.1.0'
     }
 }
 
